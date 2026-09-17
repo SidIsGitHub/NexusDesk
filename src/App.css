@@ -1,0 +1,178 @@
+.fullbleed-main {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #020202; /* Ensures no transparent gaps */
+}
+
+/* Opaque container that slides over the fixed 3D canvas */
+.solid-footer-overlap {
+  position: relative;
+  z-index: 50;
+  width: 100%;
+  background-color: #020202;
+}
+
+/* Equivalent to: w-full h-screen fixed top-0 left-0 z-20 pointer-events-none */
+.webgl-background-track {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.canvas-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 1; /* Above glow, below HTML track */
+}
+
+.volumetric-glow {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  will-change: transform;
+  backface-visibility: hidden;
+  width: 60vw;
+  height: 60vw;
+  background: radial-gradient(ellipse at 50% 50%, rgba(79,70,229,0.25) 0%, rgba(79,70,229,0.08) 40%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(64px);
+  pointer-events: none;
+  z-index: -10;
+}
+
+#root {
+  width: 100%;
+  position: relative;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Equivalent to: w-full relative */
+.html-foreground-track {
+  width: 100vw;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Environmental HUD */
+.env-hud-top-right,
+.env-hud-bottom-left {
+  position: fixed;
+  color: #525252;
+  font-size: 9px;
+  font-family: monospace;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  pointer-events: none;
+  z-index: 50;
+}
+
+.env-hud-top-right {
+  top: 24px;
+  right: 32px;
+}
+
+.env-hud-bottom-left {
+  bottom: 32px;
+  left: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Architectural Blueprint Grid */
+.bg-grid-pattern {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -20;
+  pointer-events: none;
+  background-image: 
+    linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 4rem 4rem;
+}
+
+/* Vignette Shadow Overlay */
+.vignette-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 30;
+  box-shadow: inset 0 0 200px rgba(0, 0, 0, 0.9);
+}
+
+/* Functional Quick Jump Index */
+.quick-jump-index {
+  position: fixed;
+  right: 3vw;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.quick-jump-link {
+  font-size: 10px;
+  font-family: monospace;
+  letter-spacing: 0.2em;
+  text-align: right;
+  color: rgba(255, 255, 255, 0.4);
+  transition: color 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.quick-jump-link:hover {
+  color: #FFFFFF;
+}
+
+/* Telemetry Scroll Indicator (Beautified) */
+.telemetry-scroll-track {
+  position: fixed;
+  top: 25%;
+  right: 32px;
+  width: 3px;
+  height: 50%;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 9999px;
+  z-index: 50;
+  pointer-events: none;
+  overflow: hidden;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+}
+
+.telemetry-scroll-fill {
+  width: 100%;
+  height: 100%;
+  background-color: #4F46E5;
+  border-radius: 9999px;
+  box-shadow: 0 0 15px 2px rgba(79, 70, 229, 0.8), 0 0 5px 0px rgba(255, 255, 255, 0.5);
+}
+
+/* Responsive Overrides (if needed) */
+@media (max-width: 768px) {
+  /* Foreground track remains w-full, but we might adjust section padding inside components */
+}

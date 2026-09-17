@@ -1,0 +1,72 @@
+.final-cta {
+  width: 100vw;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-color: #080808;
+  overflow: hidden;
+  text-align: center;
+}
+
+.final-cta__glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: 80vh;
+  background: radial-gradient(circle at center, rgba(79, 70, 229, 0.08) 0%, #080808 70%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.final-cta__container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 24px;
+}
+
+.final-cta__heading {
+  font-family: var(--font-display); /* Clash Display already set in index.css */
+  font-weight: 800;
+  font-size: 72px; /* Explicit size requested */
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+  margin-bottom: 40px;
+}
+
+.final-cta__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.final-cta__btn {
+  height: 56px;
+  padding: 0 40px;
+  font-size: 18px;
+  background-color: #4F46E5;
+  color: #ffffff;
+  transition: transform 150ms ease-out;
+}
+
+.final-cta__btn:hover {
+  transform: scale(1.02);
+}
+
+/* --- Mobile --- */
+@media (max-width: 768px) {
+  .final-cta {
+    min-height: 60vh;
+  }
+  
+  .final-cta__heading {
+    font-size: 48px;
+  }
+}

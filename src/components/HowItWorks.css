@@ -1,0 +1,121 @@
+.hiw {
+  background-color: #080808;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* Centered */
+  padding: 0 96px; /* px-24 approx */
+  text-align: center;
+  position: relative;
+  z-index: 100;
+  width: 100%;
+}
+
+.hiw__container {
+  width: 100%;
+  max-width: 60vw; /* Wider constraint for centered content */
+  perspective: 1000px;
+}
+
+.hiw__header {
+  margin-bottom: 60px;
+}
+
+.hiw__header .section-label {
+  display: block;
+  margin-bottom: 24px;
+}
+
+.hiw__heading {
+  line-height: 1.1;
+  font-size: 64px;
+}
+
+/* --- Steps Wrapper --- */
+.hiw__steps-wrap {
+  position: relative;
+  padding-top: 80px;
+}
+
+/* Connecting Line */
+.hiw__line-svg {
+  display: block;
+  position: absolute;
+  top: 40px;
+  left: 16.66%;
+  width: 66.66%;
+  height: 4px;
+  z-index: 1;
+}
+
+/* Dots */
+.hiw__dots {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 37px;
+  left: 16.66%;
+  width: 66.66%;
+  z-index: 2;
+}
+
+.hiw__dot {
+  width: 10px;
+  height: 10px;
+  background-color: #4F46E5;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #4F46E5;
+}
+
+/* --- Steps Grid --- */
+.hiw__steps {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 40px;
+  align-items: flex-start;
+  text-align: center;
+}
+
+.hiw__step {
+  flex: 1;
+  max-width: 320px;
+  position: relative;
+}
+
+.hiw__step-num {
+  font-size: 32px;
+  font-family: 'JetBrains Mono', monospace;
+  color: #4F46E5;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.hiw__step-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: #FFFFFF;
+  margin-bottom: 12px;
+}
+
+.hiw__step-desc {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  color: #9CA3AF;
+  line-height: 1.6;
+}
+
+/* --- Mobile --- */
+@media (max-width: 768px) {
+  .hiw {
+    min-height: auto;
+    padding: 60px 24px;
+  }
+  
+  .hiw__container {
+    max-width: 100%;
+  }
+}

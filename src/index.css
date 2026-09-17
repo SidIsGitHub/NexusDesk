@@ -1,0 +1,219 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&display=swap');
+
+/* ========================================
+   NexusDesk V1.0 — Global Styles
+   ======================================== */
+
+/* ---------- CSS Custom Properties ---------- */
+:root {
+  --bg-primary: #080808;
+  --bg-surface: #0F0F0F;
+  --border-subtle: #1A1A1A;
+  --border-strong: #262626;
+  --accent-primary: #4F46E5;
+  --accent-glow: rgba(79, 70, 229, 0.12);
+  --text-primary: #FFFFFF;
+  --text-secondary: #9CA3AF;
+  --text-muted: #6B7280;
+  --social-proof-bg: #0A0A0F;
+  --footer-bg: #050505;
+
+  --font-display: 'Clash Display', sans-serif;
+  --font-heading: 'Syne', sans-serif;
+  --font-body: 'Space Grotesk', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* ---------- Reset ---------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  /* Lenis handles smooth scroll — disable native */
+  scroll-behavior: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  overflow-x: hidden;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* ---------- Typography Classes ---------- */
+
+/* Display headings: Clash Display 800 */
+.display-heading {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+  font-size: 88px;
+  color: var(--text-primary);
+}
+
+/* Section headings: Syne 700 */
+.section-heading {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  font-size: 56px;
+  color: var(--text-primary);
+}
+
+/* Body text */
+.body-text {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+/* Mono accents */
+.mono-text {
+  font-family: var(--font-mono);
+  font-weight: 400;
+}
+
+/* Wordmark */
+.wordmark {
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+}
+
+/* Section label */
+.section-label {
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--accent-primary);
+  text-transform: uppercase;
+}
+
+/* Product label (hero) */
+.product-label {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* ---------- Button Styles ---------- */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #4F46E5;
+  color: #FFFFFF;
+  font-family: var(--font-body);
+  font-weight: 600;
+  border-radius: 8px; /* Strict enforcement */
+  transition: transform 150ms ease, background-color 150ms ease;
+  white-space: nowrap;
+}
+
+.btn-primary:hover {
+  transform: scale(1.02);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-weight: 600;
+  border: 1px solid var(--border-strong);
+  border-radius: 8px; /* Strict enforcement */
+  transition: transform 150ms ease, border-color 150ms ease;
+  white-space: nowrap;
+}
+
+.btn-ghost:hover {
+  transform: scale(1.02);
+  border-color: var(--text-muted);
+}
+
+/* ---------- Section Utility ---------- */
+.section-padding {
+  padding: 120px 80px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+
+  .display-heading {
+    font-size: 48px;
+  }
+
+  .section-heading {
+    font-size: 36px;
+  }
+
+  .section-padding {
+    padding: 80px 24px;
+  }
+}
+
+/* ---------- Reduced Motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

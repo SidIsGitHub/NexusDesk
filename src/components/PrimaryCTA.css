@@ -1,0 +1,30 @@
+/* 
+className="relative inline-flex items-center px-6 py-3 bg-white/5 border border-white/10 backdrop-blur-md text-white font-mono text-xs tracking-[0.2em] uppercase rounded-full hover:bg-white hover:text-black transition-all duration-500 overflow-hidden group cursor-pointer"
+*/
+.primary-cta {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 16px 32px; /* py-4 px-8 */
+  background-color: rgba(255, 255, 255, 0.05); /* bg-white/5 */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* border-white/10 */
+  backdrop-filter: blur(12px); /* backdrop-blur-md */
+  -webkit-backdrop-filter: blur(12px);
+  color: #FFFFFF; /* text-white */
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 0.875rem; /* text-sm */
+  letter-spacing: 0.2em; /* tracking-[0.2em] */
+  text-transform: uppercase; /* uppercase */
+  border-radius: 9999px; /* rounded-full */
+  overflow: hidden; /* overflow-hidden */
+  cursor: pointer; /* cursor-pointer */
+  transition: all 500ms ease; /* transition-all duration-500 */
+}
+
+.primary-cta:hover {
+  background-color: #FFFFFF; /* hover:bg-white */
+  color: #000000; /* hover:text-black */
+}
+
+

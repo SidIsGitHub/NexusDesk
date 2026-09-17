@@ -1,0 +1,210 @@
+.problem {
+  background-color: transparent;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0;
+}
+
+.problem__container {
+  width: 100%;
+  padding: 3rem 5vw; /* py-12 px-[5vw] */
+  display: flex;
+  flex-direction: column;
+}
+
+.problem__header {
+  margin-bottom: 60px;
+}
+
+.problem__header .section-label {
+  display: block;
+  margin-bottom: 24px;
+}
+
+.problem__heading {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800; /* font-extrabold */
+  font-size: clamp(1.5rem, 7.5vw, 4.5rem); /* fluid scaling */
+  color: #FFFFFF; /* text-white */
+  letter-spacing: -0.025em; /* tracking-tight */
+  margin-bottom: 5rem; /* mb-20 */
+  max-width: 100%;
+  text-align: left;
+  line-height: 1;
+}
+
+@media (min-width: 768px) {
+  .problem__heading {
+    font-size: clamp(3.5rem, 6vw, 4.5rem); /* fluid scaling for md */
+  }
+}
+
+.problem__heading-stroke {
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.8);
+}
+
+.problem__rows {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+}
+
+.problem__cursor-glow {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+  transition: opacity 300ms ease;
+}
+
+.problem__row {
+  display: flex;
+  flex-direction: column;
+  gap: 48px; /* gap-12 */
+  padding: 48px 0; /* py-12 */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* matches border-white/10 */
+  position: relative;
+  overflow: hidden;
+  transition: background-color 500ms ease;
+  cursor: default;
+  align-items: flex-start;
+}
+
+.problem__row:hover {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.problem__col-num {
+  position: absolute;
+  top: 1rem;
+  left: 0;
+  z-index: -10;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .problem__row {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr)); /* 12-column grid */
+    gap: 32px; /* gap-8 */
+    align-items: center;
+  }
+
+  .problem__col-num {
+    position: relative;
+    top: auto;
+    left: auto;
+    z-index: 20;
+    opacity: 1;
+    pointer-events: auto;
+    grid-column: span 2 / span 2;
+  }
+
+  .problem__col-statement {
+    grid-column: span 5 / span 5;
+  }
+
+  .problem__col-consequence {
+    grid-column-start: 9;
+    grid-column-end: span 4;
+  }
+}
+
+.problem__row:last-child {
+  border-bottom: none;
+}
+
+.problem__num {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800; /* font-extrabold */
+  font-size: 4.5rem; /* text-7xl */
+  color: rgba(255, 255, 255, 0.05); /* text-white/5 */
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.7); /* thickened stroke */
+  line-height: 1;
+}
+
+@media (min-width: 768px) {
+  .problem__num {
+    font-size: 6rem; /* md:text-8xl */
+  }
+}
+
+.problem__statement {
+  font-family: var(--font-body);
+  font-weight: 500; /* font-medium */
+  font-size: 1.125rem; /* text-lg */
+  color: #FFFFFF; /* text-white */
+}
+
+@media (min-width: 768px) {
+  .problem__statement {
+    font-size: 1.25rem; /* md:text-xl */
+  }
+}
+
+.problem__consequence {
+  font-family: var(--font-body), sans-serif; /* font-sans */
+  font-weight: 400;
+  font-size: 0.875rem; /* text-sm */
+  line-height: 1.625; /* leading-relaxed */
+  color: #9CA3AF;
+  text-align: left; /* Left on mobile */
+  margin-left: 0;
+  transition: color 300ms ease;
+}
+
+@media (min-width: 768px) {
+  .problem__consequence {
+    text-align: right;
+    margin-left: auto;
+  }
+}
+
+.problem__row:hover .problem__consequence {
+  color: #FFFFFF !important;
+}
+
+@media (min-width: 768px) {
+  .problem__consequence {
+    font-size: 1rem; /* md:text-base */
+  }
+}
+
+@media (max-width: 768px) {
+  .problem {
+    min-height: auto;
+    padding: 60px 24px;
+    align-items: center;
+  }
+  
+  .problem__container {
+    max-width: 100%;
+  }
+
+  .problem__row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 20px 0;
+  }
+
+  .problem__bg-num {
+    display: none;
+  }
+
+  .problem__statement {
+    padding-left: 0;
+  }
+
+  .problem__consequence {
+    text-align: left;
+  }
+}
