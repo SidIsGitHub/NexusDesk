@@ -25,85 +25,28 @@ export default function SocialProof() {
   useEffect(() => {
     if (!sectionRef.current) return;
 
-    const prefersReducedMotion = window.matchMedia(
-      '(prefers-reduced-motion: reduce)'
-    ).matches;
-
-    // Cinematic stagger for Header
-    const header = sectionRef.current.querySelector('.social__master-header');
-    const headerChildren = header?.querySelectorAll(':scope > *');
-    if (headerChildren?.length) {
+    const elements = sectionRef.current.querySelectorAll('.social__master-header > *, .social__terminal-wrapper, .social__footer');
+    
+    if (elements.length) {
       gsap.fromTo(
-        headerChildren,
+        elements,
         { 
-          y: prefersReducedMotion ? 0 : 60, 
+          y: 60, 
           opacity: 0,
-          rotateX: prefersReducedMotion ? 0 : -15,
-          filter: prefersReducedMotion ? 'blur(0px)' : 'blur(12px)'
+          rotateX: -15,
+          filter: 'blur(12px)'
         },
         {
           y: 0,
           opacity: 1,
           rotateX: 0,
           filter: 'blur(0px)',
-          duration: prefersReducedMotion ? 0 : 1.2,
+          duration: 1.2,
           ease: 'power4.out',
-          stagger: 0.15,
+          stagger: 0.2,
           scrollTrigger: {
-            trigger: header,
-            start: 'top 80%',
-            toggleActions: 'play none none none',
-          },
-        }
-      );
-    }
-
-    // Cinematic fade in for Terminals
-    const terminals = sectionRef.current.querySelectorAll('.social__terminal-wrapper');
-    terminals.forEach((terminal) => {
-      gsap.fromTo(
-        terminal,
-        { 
-          y: prefersReducedMotion ? 0 : 80, 
-          opacity: 0,
-          filter: prefersReducedMotion ? 'blur(0px)' : 'blur(12px)'
-        },
-        {
-          y: 0,
-          opacity: 1,
-          filter: 'blur(0px)',
-          duration: prefersReducedMotion ? 0 : 1.2,
-          ease: 'power4.out',
-          scrollTrigger: {
-            trigger: terminal,
-            start: 'top 80%',
-            toggleActions: 'play none none none',
-          },
-        }
-      );
-    });
-
-    // Animate footer text
-    const footer = sectionRef.current.querySelector('.social__footer');
-    if (footer) {
-      gsap.fromTo(
-        footer,
-        { 
-          y: prefersReducedMotion ? 0 : 60, 
-          opacity: 0,
-          rotateX: prefersReducedMotion ? 0 : -15,
-          filter: prefersReducedMotion ? 'blur(0px)' : 'blur(12px)'
-        },
-        {
-          y: 0,
-          opacity: 1,
-          rotateX: 0,
-          filter: 'blur(0px)',
-          duration: prefersReducedMotion ? 0 : 1.2,
-          ease: 'power4.out',
-          scrollTrigger: {
-            trigger: footer,
-            start: 'top 80%',
+            trigger: sectionRef.current,
+            start: 'top 75%',
             toggleActions: 'play none none none',
           },
         }

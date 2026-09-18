@@ -22,6 +22,8 @@
 @media (min-width: 768px) {
   .hero__inner {
     padding: 0 40px; /* Restore desktop padding */
+    align-items: flex-start;
+    text-align: left;
   }
 }
 
@@ -93,6 +95,12 @@
   align-items: center;
   gap: 24px;
   pointer-events: auto; /* re-enable clicking */
+}
+
+@media (min-width: 768px) {
+  .hero__actions {
+    align-items: flex-start;
+  }
 }
 
 .hero__cta {
@@ -258,6 +266,18 @@
   z-index: 40;
   pointer-events: auto;
   margin-top: 40px;
+}
+
+@media (min-width: 768px) {
+  .hero__cta-wrapper {
+    position: absolute;
+    bottom: 10vh;
+    left: 5vw;
+    max-width: 24rem;
+    align-items: flex-start;
+    text-align: left;
+    margin-top: 0;
+  }
 }
 
 /* Cinematic Scroll Arrow */

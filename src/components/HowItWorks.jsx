@@ -28,10 +28,6 @@ export default function HowItWorks() {
   useEffect(() => {
     if (!sectionRef.current) return;
 
-    const prefersReducedMotion = window.matchMedia(
-      '(prefers-reduced-motion: reduce)'
-    ).matches;
-
     // Cinematic stagger for Header
     const header = sectionRef.current.querySelector('.hiw__header');
     const headerChildren = header?.querySelectorAll(':scope > *');
@@ -39,17 +35,17 @@ export default function HowItWorks() {
       gsap.fromTo(
         headerChildren,
         { 
-          y: prefersReducedMotion ? 0 : 60, 
+          y: 60, 
           opacity: 0,
-          rotateX: prefersReducedMotion ? 0 : -15,
-          filter: prefersReducedMotion ? 'blur(0px)' : 'blur(12px)'
+          rotateX: -15,
+          filter: 'blur(12px)'
         },
         {
           y: 0,
           opacity: 1,
           rotateX: 0,
           filter: 'blur(0px)',
-          duration: prefersReducedMotion ? 0 : 1.2,
+          duration: 1.2,
           ease: 'power4.out',
           stagger: 0.15,
           scrollTrigger: {
@@ -69,17 +65,17 @@ export default function HowItWorks() {
         gsap.fromTo(
           children,
           { 
-            y: prefersReducedMotion ? 0 : 60, 
+            y: 60, 
             opacity: 0,
-            rotateX: prefersReducedMotion ? 0 : -15,
-            filter: prefersReducedMotion ? 'blur(0px)' : 'blur(12px)'
+            rotateX: -15,
+            filter: 'blur(12px)'
           },
           {
             y: 0,
             opacity: 1,
             rotateX: 0,
             filter: 'blur(0px)',
-            duration: prefersReducedMotion ? 0 : 1.2,
+            duration: 1.2,
             ease: 'power4.out',
             stagger: 0.15,
             scrollTrigger: {
@@ -93,7 +89,7 @@ export default function HowItWorks() {
     });
 
     // Connecting line draws from left to right
-    if (lineRef.current && !prefersReducedMotion) {
+    if (lineRef.current) {
       const line = lineRef.current;
       const totalLength = line.getTotalLength();
       gsap.set(line, {

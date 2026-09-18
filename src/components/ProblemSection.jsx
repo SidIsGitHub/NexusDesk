@@ -36,27 +36,23 @@ export default function ProblemSection() {
   useEffect(() => {
     if (!sectionRef.current) return;
 
-    const prefersReducedMotion = window.matchMedia(
-      '(prefers-reduced-motion: reduce)'
-    ).matches;
-
     // Select header children and row children for a single unified stagger
     const elements = sectionRef.current.querySelectorAll('.problem__header > *, .problem__row');
     
     gsap.fromTo(
       elements,
       { 
-        y: prefersReducedMotion ? 0 : 60, 
+        y: 60, 
         opacity: 0,
-        rotateX: prefersReducedMotion ? 0 : -15,
-        filter: prefersReducedMotion ? 'blur(0px)' : 'blur(12px)'
+        rotateX: -15,
+        filter: 'blur(12px)'
       },
       {
         y: 0,
         opacity: 1,
         rotateX: 0,
         filter: 'blur(0px)',
-        duration: prefersReducedMotion ? 0 : 1.2,
+        duration: 1.2,
         ease: 'power4.out',
         stagger: 0.15,
         scrollTrigger: {

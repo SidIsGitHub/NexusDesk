@@ -59,10 +59,6 @@ export default function PricingSection() {
   useEffect(() => {
     if (!sectionRef.current) return;
 
-    const prefersReducedMotion = window.matchMedia(
-      '(prefers-reduced-motion: reduce)'
-    ).matches;
-
     // Cinematic stagger for Header
     const header = sectionRef.current.querySelector('.pricing__header');
     const headerChildren = header?.querySelectorAll(':scope > *');
@@ -70,17 +66,17 @@ export default function PricingSection() {
       gsap.fromTo(
         headerChildren,
         { 
-          y: prefersReducedMotion ? 0 : 60, 
+          y: 60, 
           opacity: 0,
-          rotateX: prefersReducedMotion ? 0 : -15,
-          filter: prefersReducedMotion ? 'blur(0px)' : 'blur(12px)'
+          rotateX: -15,
+          filter: 'blur(12px)'
         },
         {
           y: 0,
           opacity: 1,
           rotateX: 0,
           filter: 'blur(0px)',
-          duration: prefersReducedMotion ? 0 : 1.2,
+          duration: 1.2,
           ease: 'power4.out',
           stagger: 0.15,
           scrollTrigger: {
@@ -92,19 +88,27 @@ export default function PricingSection() {
       );
     }
 
+
     // Animate cards with stagger — middle card arrives 0.05s earlier
     const cards = sectionRef.current.querySelectorAll('.pricing__card');
     const delays = [0.12, 0.07, 0.24]; // middle (index 1) arrives first
     cards.forEach((card, i) => {
       gsap.fromTo(
         card,
-        { y: 40, opacity: 0 },
+        { 
+          y: 60, 
+          opacity: 0,
+          rotateX: -15,
+          filter: 'blur(12px)'
+        },
         {
           y: 0,
           opacity: 1,
-          duration: prefersReducedMotion ? 0 : 0.55,
+          rotateX: 0,
+          filter: 'blur(0px)',
+          duration: 1.2,
           delay: delays[i] || i * 0.12,
-          ease: 'power2.out',
+          ease: 'power4.out',
           scrollTrigger: {
             trigger: sectionRef.current.querySelector('.pricing__cards'),
             start: 'top 85%',

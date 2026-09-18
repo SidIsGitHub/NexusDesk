@@ -97,7 +97,7 @@ export default function SideMenu() {
 
         {/* Right: CTA Button */}
         <div className="sidemenu-cta-wrapper flex-1 flex justify-end">
-          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="h-full flex items-center">
             <PrimaryCTA text="Try NexusDesk" className="sidemenu-cta-override" />
           </a>
         </div>

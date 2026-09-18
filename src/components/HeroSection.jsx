@@ -15,24 +15,20 @@ export default function HeroSection() {
   useEffect(() => {
     if (!sectionRef.current) return;
 
-    const prefersReducedMotion = window.matchMedia(
-      '(prefers-reduced-motion: reduce)'
-    ).matches;
-
     const elements = sectionRef.current.querySelectorAll('.hero__inner > h1, .hero__inner > div');
 
     gsap.fromTo(
       elements,
       {
-        y: prefersReducedMotion ? 0 : 60,
+        y: 60,
         opacity: 0,
-        filter: prefersReducedMotion ? 'blur(0px)' : 'blur(12px)'
+        filter: 'blur(12px)'
       },
       {
         y: 0,
         opacity: 1,
         filter: 'blur(0px)',
-        duration: prefersReducedMotion ? 0 : 1.2,
+        duration: 1.2,
         ease: 'power4.out',
         stagger: 0.15,
         scrollTrigger: {
