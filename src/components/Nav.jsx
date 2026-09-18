@@ -25,7 +25,7 @@ export default function Nav() {
         {/* Brand */}
         <a href="/" className="nav__brand flex items-center gap-4">
           <img src="/nexusdesk-logo.png" alt="NexusDesk Logo" className="nav__logo w-14 h-14" />
-          <span className="nav__wordmark text-[10px] tracking-[0.3em] font-extrabold">NEXUSDESK</span>
+          <span className="nav__wordmark text-[10px] tracking-[0.3em] font-extrabold text-white">NEXUSDESK</span>
         </a>
         
         <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">

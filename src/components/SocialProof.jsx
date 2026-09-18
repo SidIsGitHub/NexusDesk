@@ -188,7 +188,7 @@ export default function SocialProof() {
         </div>
 
         <p className="social__footer absolute bottom-10 text-center w-full z-40">
-          Two cafes. One product. Zero operational chaos.
+          Two cafes. One product.
         </p>
       </section>
     </>

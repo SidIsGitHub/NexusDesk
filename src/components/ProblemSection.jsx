@@ -103,7 +103,7 @@ export default function ProblemSection() {
               key={p.num}
             >
               {/* Watermark Number */}
-              <div className="absolute top-4 left-0 md:static md:col-span-2 problem__col-num md:relative -z-10 md:z-[20] opacity-30 md:opacity-100 pointer-events-none">
+              <div className="absolute top-4 left-0 md:static md:col-span-2 problem__col-num md:relative -z-10 md:z-[20] opacity-10 md:opacity-100 pointer-events-none">
                 <motion.span 
                   variants={{
                     inactive: { opacity: 0.3, WebkitTextStroke: '1px rgba(255,255,255,0.5)' },

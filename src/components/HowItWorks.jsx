@@ -135,7 +135,7 @@ export default function HowItWorks() {
         <div className="hiw__steps-wrap">
           {/* Connecting line SVG */}
           <svg
-            className="hiw__line-svg"
+            className="hiw__line-svg hidden md:block"
             viewBox="0 0 900 4"
             preserveAspectRatio="none"
             aria-hidden="true"
@@ -152,13 +152,13 @@ export default function HowItWorks() {
           </svg>
 
           {/* Indigo dots */}
-          <div className="hiw__dots">
+          <div className="hiw__dots hidden md:flex">
             <span className="hiw__dot" />
             <span className="hiw__dot" />
             <span className="hiw__dot" />
           </div>
 
-          <div className="hiw__steps">
+          <div className="hiw__steps flex flex-col md:flex-row gap-12 md:gap-0 items-center md:items-start">
             {steps.map((step) => (
               <div className="hiw__step" key={step.num}>
                 <span className="hiw__step-num mono-text">{step.num}</span>

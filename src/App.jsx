@@ -149,7 +149,7 @@ export default function App() {
       <SideMenu />
       
       {/* Telemetry Scroll Indicator */}
-      <div className="telemetry-scroll-track">
+      <div className="telemetry-scroll-track hidden md:block">
         <motion.div 
           className="telemetry-scroll-fill" 
           style={{ scaleY: scrollYProgress, transformOrigin: 'top' }} 

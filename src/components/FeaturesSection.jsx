@@ -245,7 +245,7 @@ export default function FeaturesSection() {
   }, []);
 
   return (
-    <section className="features w-full pb-24 md:pb-[40vh]" id="features-section" ref={sectionRef}>
+    <section className="features w-full pb-16 md:pb-[40vh]" id="features-section" ref={sectionRef}>
       <div className="features__container">
         <div className="features__header features__sticky-header">
           <h2 className="features__heading font-['Syne'] font-extrabold text-[clamp(3rem,6vw,8rem)] text-white tracking-tighter leading-[0.85] z-50 relative">

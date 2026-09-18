@@ -124,7 +124,22 @@ export default function PricingSection() {
   }, []);
 
   return (
-    <section className="pricing section-padding" id="pricing-section" ref={sectionRef}>
+    <section className="pricing section-padding relative overflow-hidden" id="pricing-section" ref={sectionRef}>
+      <div className="absolute -top-[5vh] -right-[5vw] text-[25vw] font-['Syne'] font-extrabold text-white/[0.02] tracking-tighter leading-none select-none pointer-events-none -z-10">
+        05
+      </div>
+      {/* Background Grid */}
+      <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:100px_100px] [mask-image:radial-gradient(ellipse_70%_70%_at_50%_50%,transparent_30%,#000_100%)] -z-20"></div>
+
+      <div className="absolute bottom-[5vh] -left-[2vw] text-[15vw] font-['Syne'] font-extrabold text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.03)] tracking-tighter leading-none select-none pointer-events-none -z-10 transform-gpu -rotate-90 origin-bottom-left">
+        NEXUS
+      </div>
+
+      {/* Top Right Flare */}
+      <div className="absolute top-0 right-0 w-[40vw] h-[40vw] bg-indigo-500/10 rounded-full blur-[150px] -z-10 pointer-events-none translate-x-1/3 -translate-y-1/3"></div>
+      
+      {/* Bottom Left Flare */}
+      <div className="absolute bottom-0 left-0 w-[50vw] h-[50vw] bg-indigo-900/10 rounded-full blur-[150px] -z-10 pointer-events-none -translate-x-1/3 translate-y-1/3"></div>
       <div className="pricing__container">
         <div className="pricing__header">
           <span className="section-label">05 — PRICING</span>

@@ -57,7 +57,7 @@ export default function HeroSection() {
       {/* Absolute Hero Logo - Hidden on mobile to prevent overlap */}
       <img src="/nexusdesk-logo.png" alt="NexusDesk" className="hero__absolute-logo hidden md:block absolute top-12 right-12 w-64 h-auto object-contain z-50 pointer-events-none opacity-90" />
 
-      <div className="hero__inner hero__inner--left-aligned">
+      <div className="hero__inner">
         {/* Massive Typography */}
         <h1 className="hero__headline">
           <span className="hero__watermark">NEXUSDESK.</span><br />

@@ -40,24 +40,36 @@
 
 /* Connecting Line */
 .hiw__line-svg {
-  display: block;
-  position: absolute;
-  top: 40px;
-  left: 16.66%;
-  width: 66.66%;
-  height: 4px;
-  z-index: 1;
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .hiw__line-svg {
+    display: block;
+    position: absolute;
+    top: 40px;
+    left: 16.66%;
+    width: 66.66%;
+    height: 4px;
+    z-index: 1;
+  }
 }
 
 /* Dots */
 .hiw__dots {
-  display: flex;
-  justify-content: space-between;
-  position: absolute;
-  top: 37px;
-  left: 16.66%;
-  width: 66.66%;
-  z-index: 2;
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .hiw__dots {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 37px;
+    left: 16.66%;
+    width: 66.66%;
+    z-index: 2;
+  }
 }
 
 .hiw__dot {
@@ -71,10 +83,7 @@
 /* --- Steps Grid --- */
 .hiw__steps {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  gap: 40px;
-  align-items: flex-start;
   text-align: center;
 }
 

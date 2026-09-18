@@ -23,7 +23,13 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 0 64px;
+  padding: 0 24px;
+}
+
+@media (min-width: 768px) {
+  .nav__inner {
+    padding: 0 64px;
+  }
 }
 
 .nav__brand {
@@ -35,13 +41,13 @@
 
 .nav__logo {
   width: auto;
-  height: 40px; /* Base height */
+  height: 48px; /* Base height */
   object-fit: contain;
 }
 
 @media (min-width: 768px) {
   .nav__logo {
-    height: 48px; /* md:h-12 */
+    height: 56px; /* md:h-14 */
   }
 }
 

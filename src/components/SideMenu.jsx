@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLenis } from 'lenis/react';
+import { WHATSAPP_URL } from '../utils/constants';
 import PrimaryCTA from './PrimaryCTA';
 import './SideMenu.css';
 
@@ -15,19 +16,23 @@ export default function SideMenu() {
       window.location.href = `/${target}`;
       return;
     }
-    if (lenis) {
-      lenis.scrollTo(target, {
-        offset: 0,
-        duration: 1.2,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      });
-    } else {
-      const el = document.querySelector(target);
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
     setIsOpen(false);
+    
+    // Slight delay to let menu close animation start before scrolling
+    setTimeout(() => {
+      if (lenis) {
+        lenis.scrollTo(target, {
+          offset: 0,
+          duration: 1.2,
+          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        });
+      } else {
+        const el = document.querySelector(target);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    }, 100);
   };
 
   useEffect(() => {
@@ -71,26 +76,30 @@ export default function SideMenu() {
 
       <div className={`sidemenu-control-bar relative ${isAtFooter ? 'sidemenu-control-bar--compressed' : ''}`}>
         
-        {/* Hamburger / Close Icon */}
-        <button 
-          onClick={() => setIsOpen(!isOpen)} 
-          className="sidemenu-hamburger-btn"
-        >
-          {isOpen ? (
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-          ) : (
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><line x1="4" y1="10" x2="20" y2="10"></line><line x1="4" y1="14" x2="20" y2="14"></line></svg>
-          )}
-        </button>
+        {/* Left: Hamburger */}
+        <div className="flex-1 flex justify-start">
+          <button 
+            onClick={() => setIsOpen(!isOpen)} 
+            className="sidemenu-hamburger-btn"
+          >
+            {isOpen ? (
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            ) : (
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><line x1="4" y1="10" x2="20" y2="10"></line><line x1="4" y1="14" x2="20" y2="14"></line></svg>
+            )}
+          </button>
+        </div>
 
-        {/* Brand Mark */}
-        <span className="sidemenu-brand-mark transition-opacity duration-300">
-          <img src="/nexusdesk-logo.png" alt="NexusDesk" className="sidemenu-logo absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-4 w-auto max-w-[100px] object-contain grayscale brightness-200 pointer-events-none" />
+        {/* Center: Brand Mark */}
+        <span className="sidemenu-brand-mark absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-300 flex justify-center">
+          <img src="/nexusdesk-logo.png" alt="NexusDesk" className="h-8 md:h-10 w-auto object-contain grayscale pointer-events-none" />
         </span>
 
-        {/* CTA Button */}
-        <div className="sidemenu-cta-wrapper">
-          <PrimaryCTA text="Try NexusDesk" className="sidemenu-cta-override" />
+        {/* Right: CTA Button */}
+        <div className="sidemenu-cta-wrapper flex-1 flex justify-end">
+          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+            <PrimaryCTA text="Try NexusDesk" className="sidemenu-cta-override" />
+          </a>
         </div>
 
         {/* Compressed Icon (Up Arrow visible only when compressed) */}
